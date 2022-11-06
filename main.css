@@ -45,6 +45,7 @@ body {
 }
 .movie-title {
   text-transform: capitalize;
+  color: red;
 }
 .bookmark_btn {
   border: none;
