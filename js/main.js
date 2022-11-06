@@ -228,4 +228,4 @@ elForm.addEventListener("submit", function (evt) {
 });
 getGenres();
 renderGenres();
-renderMovies(fullMovies.slice(0, 11));
+renderMovies(fullMovies.slice(0, 101));
