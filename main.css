@@ -43,7 +43,9 @@ body {
   background-color: rgb(216, 135, 135);
   color: #fff;
 }
-
+.movie-title {
+  text-transform: capitalize;
+}
 .bookmark_btn {
   border: none;
   background-color: transparent;
