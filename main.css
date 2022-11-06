@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+body {
+  font-family: "Merriweather";
+  background-color: #831843;
+}
+.movie-box {
+  width: 100%;
+  max-width: 390px;
+  min-height: 400px;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgb(197, 195, 195);
+}
+
+.rating-icon::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-image: url("./img/star.svg");
+  background-position: center;
+  background-size: 20px;
+}
+
+.time-icon::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-image: url("./img/time-fast.svg");
+  background-position: center;
+  background-size: 20px;
+  margin-left: 15px;
+}
+
+.year-icon::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-image: url("./img/calendar-clock.svg");
+  background-position: center;
+  background-size: 20px;
+  margin: 0 20px;
+}
+.movie-btn {
+  background-color: rgb(216, 135, 135);
+  color: #fff;
+}
+
+.bookmark_btn {
+  border: none;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+}
+.remove_btn {
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #a53361;
+}
+.bookmark_list_item {
+  padding: 10px;
+  margin-top: 10px;
+  background-color: rgb(228, 170, 170);
+  color: #fff;
+}
+.btn_open {
+  background-color: rgb(216, 135, 135);
+  color: #fff;
+}
+
+@media only screen and (max-width: 500px) {
+  .modal_img {
+    width: 100%;
+    max-width: 490px;
+  }
+}

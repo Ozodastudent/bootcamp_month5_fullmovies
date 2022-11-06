@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./main.css" />
+    <title>Movies channel</title>
+  </head>
+  <body>
+    <header class="header pt-5">
+      <div class="container">
+        <div class="header_inner">
+          <h1 class="text-center text-white mb-4">Movies Channel</h1>
+          <form action="#" class="form d-flex" method="GET">
+            <div class="d-flex input-group row">
+              <div class="col-12 col-sm-6">
+                <input
+                  type="search"
+                  class="search_input form-control me-lg-3"
+                  name="search input"
+                  placeholder="Search"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-12 py-2 py-sm-0 col-sm-6">
+                <select
+                  name="select form"
+                  class="form-select form_select_element col-12"
+                >
+                  <option value="all" class="form_select_option">All</option>
+                </select>
+              </div>
+              <div class="col-12 py-2 col-sm-6">
+                <input
+                  class="js-max-year form-control col-12"
+                  type="number"
+                  placeholder="To year ..."
+                />
+              </div>
+              <div class="col-12 col-sm-6 mt-sm-2">
+                <input
+                  class="js-min-year form-control col-12"
+                  type="number"
+                  placeholder="From year ... "
+                />
+              </div>
+              <div class="col-12 col-sm-6">
+                <select
+                  class="js-sort-movies form-select col-12"
+                  name="sort_movies"
+                >
+                  <option value="all" selected disabled>All</option>
+                  <option value="a-z">A-Z</option>
+                  <option value="z-a">Z-A</option>
+                  <option value="oldest-latest">Oldest-Latest</option>
+                  <option value="latest-oldest">Latest-Oldest</option>
+                  <option value="low-rating">Low rated</option>
+                  <option value="high-rating">High rated</option>
+                </select>
+              </div>
+              <div class="col-12 mt-2 mt-sm-0 col-sm-6">
+                <button type="submit" class="btn btn-light">Search</button>
+              </div>
+              <div class="col-12 mt-2 mt-sm-0 col-sm-6">
+                <button
+                  class="btn_open btn mt-3"
+                  type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasRight"
+                  aria-controls="offcanvasRight"
+                >
+                  saved
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container position-relative">
+        <ul
+          class="list list-unstyled row flex-column align-items-center flex-md-row mt-5"
+        ></ul>
+        <ul
+          class="offcanvas offcanvas-end offcanvas-body bookmark_list list-unstyled p-3"
+          tabindex="-1"
+          id="offcanvasRight"
+          aria-labelledby="offcanvasRightLabel"
+        ></ul>
+      </div>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-body row">
+              <div class="col-12 col-xl-5">
+                <h2 class="modal-title"></h2>
+                <iframe
+                  class="modal-iframe"
+                  width="447"
+                  height="251"
+                  src=""
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div
+                class="col-12 col-xl-7 d-flex flex-column justify-content-between"
+              >
+                <div>
+                  <div
+                    class="d-flex justify-content-between align-items-center my-2"
+                  >
+                    <span
+                      class="modal-rating rating-icon d-inline-flex align-items-center"
+                    ></span>
+                    <span
+                      class="modal-year year-icon d-inline-flex align-items-center"
+                    ></span>
+                    <time
+                      class="modal-runtime time-icon d-inline-flex align-items-center"
+                    ></time>
+                  </div>
+                  <div class="modal-categories mb-2"></div>
+                  <p class="modal-summary"></p>
+                </div>
+                <a class="modal-imdb-link" href="" target="blank"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <template class="js-movie-template">
+        <li class="item col-12 col-md-6 col-lg-4 mb-3">
+          <div
+            class="movie-box rounded-3 p-3 d-flex flex-column justify-content-between"
+          >
+            <img
+              class="movie-img mx-auto mb-3 img-fluid"
+              src="https://via.placeholder.com/150"
+              alt=""
+            />
+            <h5 class="movie-title"></h5>
+            <div class="d-flex justify-content-between my-2">
+              <span
+                class="movie-rating rating-icon d-inline-flex align-items-center"
+              ></span>
+              <span
+                class="movie-year year-icon d-inline-flex align-items-center"
+              ></span>
+              <time
+                class="movie-runtime time-icon d-inline-flex align-items-center"
+              ></time>
+            </div>
+            <div class="movie-categories mb-2"></div>
+            <button
+              class="movie-btn btn"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              More info
+            </button>
+            <button class="bookmark_btn">🤍</button>
+          </div>
+        </li>
+      </template>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"
+      ></script>
+      <script src="./js/movies.js"></script>
+      <script src="./js/main.js"></script>
+    </main>
+  </body>
+</html>
