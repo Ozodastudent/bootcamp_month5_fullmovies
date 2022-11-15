@@ -211,9 +211,7 @@ function sortMovies(sortArr, sortingType) {
     sortArr.sort((a, b) => b.imdb_rating - a.imdb_rating);
   }
 }
-
 // Search part
-
 elForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
   const searchInputValue = elFormSearchInput.value.trim();
